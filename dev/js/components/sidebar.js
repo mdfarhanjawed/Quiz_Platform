@@ -14,7 +14,7 @@ class Sidebar extends React.Component{
       <div style={width_40}>Total Question
         <div style={{border: '1px solid green', height: '150px', width: '500px',padding: '40px' }}>
           {this.props.questions.map((question, index) => (
-            <span className='boxDesign' key={'box'+ index} onClick={() => {this.props.updateQusIndx(index)}}>{index + 1}</span>
+            <span className={(this.props.current_question_index == index) ? 'questionSelected boxDesign' : 'boxDesign' } key={'box'+ index} onClick={() => {this.props.updateQusIndx(index)}}>{index + 1}</span>
           ))}
         </div>
       </div>

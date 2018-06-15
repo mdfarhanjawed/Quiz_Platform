@@ -30,7 +30,7 @@ class App extends React.Component {
       <div>
         <Navbar {...this.state} updateQusIndx = {this.updateCurrentQuestionIndex} />
         <Question {...this.state} updateQusIndx = {this.updateCurrentQuestionIndex} />
-        <Sidebar updateQusIndx = {this.updateCurrentQuestionIndex} />
+        <Sidebar {...this.state} updateQusIndx = {this.updateCurrentQuestionIndex} />
       </div>
 
     )
