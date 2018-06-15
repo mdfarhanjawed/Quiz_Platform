@@ -5,7 +5,7 @@ require('../../scss/style.scss');
 
 const question = { marginTop: '50px', border: '1px dotted black', width: '100%', marginLeft: '15px', padding: '10px'}
 const button = { cursor: "pointer", marginTop: '20px', border: '1px solid black', marginLeft: '15px', padding: '5px'}
-const width_40 = { width: '40%', display: 'inline-block' }
+const width_40 = { width: '40%', display: 'inline-grid' }
 const question_style = { marginBottom: '20px', marginTop: '10px', fontSize: '14px', color: "blue"}
 
 class Question extends React.Component {

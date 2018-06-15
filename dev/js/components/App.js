@@ -26,10 +26,9 @@ class App extends React.Component {
   // }
 
   render() {
-    console.log(this.props.list)
     return (
       <div>
-        <Navbar onChange={this.resetCurrentQuestionIndex} {...this.state} updateQusIndx = {this.updateCurrentQuestionIndex} />
+        <Navbar {...this.state} updateQusIndx = {this.updateCurrentQuestionIndex} />
         <Question {...this.state} updateQusIndx = {this.updateCurrentQuestionIndex} />
         <Sidebar />
       </div>

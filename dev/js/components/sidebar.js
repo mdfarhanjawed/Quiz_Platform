@@ -1,8 +1,8 @@
 import React from 'react';
-import {action} from 'react-redux';
+import {action, connect} from 'react-redux';
 
 const sidebar = {  width: '30%', height: "500px"}
-const width_40 = { width: '40%', display: 'inline-block', marginLeft: '120px'  }
+const width_40 = { width: '40%', display: 'inline-grid', marginLeft: '120px'  }
 
 class Sidebar extends React.Component{
   constructor(props){
@@ -11,12 +11,20 @@ class Sidebar extends React.Component{
 
   render(){
     return(
-      <div style={width_40}>
-        <div style={sidebar}>Question Details</div>
-        <div>Each Question</div>
+      <div style={width_40}>Total Question
+        <div style={{border: '1px solid green', height: '150px', width: '500px',padding: '40px' }}>
+          {this.props.questions.map((question, index) => (
+            <span className='boxDesign' key={'box'+ index} >{index + 1}</span>
+          ))}
+        </div>
       </div>
     )
   }
 }
 
-export default Sidebar;
+function mapStateToProps(state) {
+  return {
+    questions: state
+  };
+}
+export default connect(mapStateToProps)(Sidebar);
