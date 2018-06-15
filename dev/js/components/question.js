@@ -4,16 +4,13 @@ import {action, connect} from 'react-redux';
 require('../../scss/style.scss');
 
 const question = { marginTop: '50px', border: '1px dotted black', width: '100%', marginLeft: '15px', padding: '10px'}
-const button = { marginTop: '20px', border: '1px solid black', marginLeft: '15px', padding: '5px'}
+const button = { cursor: "pointer", marginTop: '20px', border: '1px solid black', marginLeft: '15px', padding: '5px'}
 const width_40 = { width: '40%', display: 'inline-block' }
 const question_style = { marginBottom: '20px', marginTop: '10px', fontSize: '14px', color: "blue"}
 
 class Question extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      current_question_index: 0
-    };
   }
 
   componentWillMount(){
@@ -41,12 +38,12 @@ class Question extends React.Component {
       <div style={width_40}>
         <div style={question}>
           {this.props.questions.map((item, index) => (
-             (index == this.state.current_question_index) ? this.renderQuestion(item, index) : ''
+             (index == this.props.current_question_index) ? this.renderQuestion(item, index) : ''
           ))}
         </div>
         <div style={question}>
-          <span style={button} className={this.state.current_question_index == 0 ? 'hidden' : ''} onClick={(e) => {this.setState({current_question_index: this.state.current_question_index - 1 })}}>Prev</span>
-          <span style={button} className={(this.state.current_question_index + 1) == this.props.questions.length ? 'hidden': ''}  onClick={(e) => {this.setState({current_question_index: this.state.current_question_index + 1 })}}>Next</span>
+          <span style={button} className={this.props.current_question_index == 0 ? 'hidden' : ''} onClick={() => {this.props.updateQusIndx(this.props.current_question_index - 1)}}>Prev</span>
+          <span style={button} className={(this.props.current_question_index + 1) == this.props.questions.length ? 'hidden': ''}  onClick={() => {this.props.updateQusIndx(this.props.current_question_index + 1)}}>Next</span>
           <span style={button}>Mark</span>
           <span style={button}>Submit</span>
         </div>

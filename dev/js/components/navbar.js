@@ -12,7 +12,7 @@ class Navbar extends React.Component {
 
   render(){
     return(
-      <div>
+      <div onClick={() => {this.props.updateQusIndx(0)}}>
         <div>
           <span style={navbar_design} onClick ={(e) => {this.props.get_question()}}>Quantative</span>
           <span style={navbar_design} onClick ={(e) => {this.props.get_reasoning_question()}} >Reasoning</span>

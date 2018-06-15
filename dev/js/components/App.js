@@ -9,10 +9,16 @@ require('../../scss/style.scss');
 class App extends React.Component {
   constructor(props){
     super(props);
+    this.updateCurrentQuestionIndex = this.updateCurrentQuestionIndex.bind(this);
     this.state = {
-      add_todo_text: ""
+      current_question_index: 0
     };
   }
+
+  updateCurrentQuestionIndex(index){
+    this.setState({current_question_index: index})
+  }
+
 
   // componentWillMount(){
   //   console.log(this.props.get_question);
@@ -23,8 +29,8 @@ class App extends React.Component {
     console.log(this.props.list)
     return (
       <div>
-        <Navbar />
-        <Question />
+        <Navbar onChange={this.resetCurrentQuestionIndex} {...this.state} updateQusIndx = {this.updateCurrentQuestionIndex} />
+        <Question {...this.state} updateQusIndx = {this.updateCurrentQuestionIndex} />
         <Sidebar />
       </div>
 
