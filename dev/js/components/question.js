@@ -26,9 +26,9 @@ class Question extends React.Component {
       <span key="option">
       {item.option.map((option, index) => (
         <span key={'span' + index}>
-                            <input type="radio" id={option} name="random" key={'radio_option' + index}/>
-                            <label key={'label_option' + index} key={'label_option' + index} >{option}</label>
-                          </span>
+          <input type="radio" id={option} name="random" key={'radio_option' + index}/>
+          <label key={'label_option' + index} key={'label_option' + index} >{option}</label>
+        </span>
       ))}
       </span>
     </div>)
@@ -39,12 +39,12 @@ class Question extends React.Component {
       <div style={width_40}>
         <div style={question}>
           {this.props.questions.map((item, index) => (
-               (index == this.state.current_question_index) ? this.renderQuestion(item, index) : ''
+             (index == this.state.current_question_index) ? this.renderQuestion(item, index) : ''
           ))}
         </div>
         <div style={question}>
-          <span style={button}>Next</span>
-          <span style={button}>Prev</span>
+          <span style={button} onClick={(e) => {this.setState({current_question_index: this.state.current_question_index + 1 })}}>Next</span>
+          <span style={button} onClick={(e) => {this.setState({current_question_index: this.state.current_question_index - 1 })}}>Prev</span>
           <span style={button}>Mark</span>
           <span style={button}>Submit</span>
         </div>
