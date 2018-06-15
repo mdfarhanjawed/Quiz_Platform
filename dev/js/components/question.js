@@ -18,24 +18,28 @@ class Question extends React.Component {
     this.props.get_question();
   }
 
+  renderQuestion(item, index){
+    return (<div>
+      <h4>Question Type:  {item.question_type}</h4>
+      <span key="question_number" >Question No: {index + 1}</span>
+      <div>{item.question}</div>
+      <span key="option">
+      {item.option.map((option, index) => (
+        <span key={'span' + index}>
+                            <input type="radio" id={option} name="random" key={'radio_option' + index}/>
+                            <label key={'label_option' + index} key={'label_option' + index} >{option}</label>
+                          </span>
+      ))}
+      </span>
+    </div>)
+  }
+
   render(){
     return(
       <div style={width_40}>
         <div style={question}>
           {this.props.questions.map((item, index) => (
-              <div>
-              <h4>Question Type:  {item.question_type}</h4>
-              <span>Question No: {index + 1}</span>
-              <div>{item.question}</div>
-                <span>
-                  {item.option.map((option, index) => (
-                    <span>
-                      <input type="radio" id={option} name="random" key={'radio_option' + index}/>
-                      <label key={'label_option' + index} >option</label>
-                    </span>
-                  ))}
-                  </span>
-            </div>
+               (index == this.state.current_question_index) ? this.renderQuestion(item, index) : ''
           ))}
         </div>
         <div style={question}>
