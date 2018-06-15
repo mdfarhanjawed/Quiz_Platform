@@ -1,10 +1,12 @@
 import React from 'react';
 import {get_question} from '../actions';
 import {action, connect} from 'react-redux';
+require('../../scss/style.scss');
 
 const question = { marginTop: '50px', border: '1px dotted black', width: '100%', marginLeft: '15px', padding: '10px'}
 const button = { marginTop: '20px', border: '1px solid black', marginLeft: '15px', padding: '5px'}
 const width_40 = { width: '40%', display: 'inline-block' }
+const question_style = { marginBottom: '20px', marginTop: '10px', fontSize: '14px', color: "blue"}
 
 class Question extends React.Component {
   constructor(props){
@@ -22,13 +24,13 @@ class Question extends React.Component {
     return (<div>
       <h4>Question Type:  {item.question_type}</h4>
       <span key="question_number" >Question No: {index + 1}</span>
-      <div>{item.question}</div>
+      <div style={question_style}>{item.question}</div>
       <span key="option">
       {item.option.map((option, index) => (
-        <span key={'span' + index}>
+        <div key={'span' + index}>
           <input type="radio" id={option} name="random" key={'radio_option' + index}/>
           <label key={'label_option' + index} key={'label_option' + index} >{option}</label>
-        </span>
+        </div>
       ))}
       </span>
     </div>)
@@ -43,8 +45,8 @@ class Question extends React.Component {
           ))}
         </div>
         <div style={question}>
-          <span style={button} onClick={(e) => {this.setState({current_question_index: this.state.current_question_index + 1 })}}>Next</span>
-          <span style={button} onClick={(e) => {this.setState({current_question_index: this.state.current_question_index - 1 })}}>Prev</span>
+          <span style={button} className={this.state.current_question_index == 0 ? 'hidden' : ''} onClick={(e) => {this.setState({current_question_index: this.state.current_question_index - 1 })}}>Prev</span>
+          <span style={button} className={(this.state.current_question_index + 1) == this.props.questions.length ? 'hidden': ''}  onClick={(e) => {this.setState({current_question_index: this.state.current_question_index + 1 })}}>Next</span>
           <span style={button}>Mark</span>
           <span style={button}>Submit</span>
         </div>

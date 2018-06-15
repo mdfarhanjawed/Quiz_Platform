@@ -17,8 +17,18 @@ catSearchServiceInstance.interceptors.request.use(
     return Promise.reject(error);
   },
 );
+
 export const get_question = () => ({
   type: "GET_QUESTION",
   payload: catSearchServiceInstance.get('questions.json'),
 });
 
+export const get_reasoning_question = () => ({
+  type: "GET_REASONING_QUESTION",
+  payload: catSearchServiceInstance.get('questions.json', { params: { question_type: "REASONING" } }),
+})
+
+export const get_english_question = () => ({
+  type: "GET_ENGLISH_QUESTION",
+  payload: catSearchServiceInstance.get('questions.json', { params: { question_type: "ENGLISH" } }),
+})
