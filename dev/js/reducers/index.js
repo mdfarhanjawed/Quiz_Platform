@@ -1,15 +1,11 @@
-import {combineReducers} from 'redux';
-import UserReducer from './reducer-users';
-import ActiveUserReducer from './reducer-active-user';
+const TodoReducer =  (state = [], action) => {
+  switch (action.type) {
+    case 'GET_QUESTION':
+      return action.payload.data;
+      break;
 
-/*
- * We combine all reducers into a single object before updated data is dispatched (sent) to store
- * Your entire applications state (store) is just whatever gets returned from all your reducers
- * */
+  }
+  return state;
+}
 
-const allReducers = combineReducers({
-    users: UserReducer,
-    activeUser: ActiveUserReducer
-});
-
-export default allReducers
+export default TodoReducer

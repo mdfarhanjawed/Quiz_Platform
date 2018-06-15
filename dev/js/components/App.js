@@ -1,16 +1,50 @@
 import React from 'react';
-import UserList from '../containers/user-list';
-import UserDetails from '../containers/user-detail';
+import {connect} from 'react-redux';
+import Navbar from './navbar';
+import Question from './question';
+import Sidebar from './sidebar';
+import { } from '../actions';
 require('../../scss/style.scss');
 
-const App = () => (
-    <div>
-        <h2>User List</h2>
-        <UserList />
-        <hr />
-        <h2>User Details</h2>
-        <UserDetails />
-    </div>
-);
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      add_todo_text: ""
+    };
+  }
 
-export default App;
+  // componentWillMount(){
+  //   console.log(this.props.get_question);
+  //   this.props.get_question();
+  // }
+
+  render() {
+    console.log(this.props.list)
+    return (
+      <div>
+        <Navbar />
+        <Question />
+        <Sidebar />
+      </div>
+
+    )
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return ({
+    get_question: () => {
+      dispatch(get_question())
+    },
+  })
+}
+
+function mapStateToProps(state) {
+  return {
+    question: state
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
