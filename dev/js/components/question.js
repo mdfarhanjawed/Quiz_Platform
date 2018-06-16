@@ -52,7 +52,7 @@ class Question extends React.Component {
         <div style={question}>
           <span style={button} className={this.props.current_question_index == 0 ? 'hidden' : ''} onClick={() => {this.props.updateQusIndx(this.props.current_question_index - 1)}}>Prev</span>
           <span style={button} className={(this.props.current_question_index + 1) == this.props.questions.length ? 'hidden': ''}  onClick={() => {this.props.updateQusIndx(this.props.current_question_index + 1)}}>Next</span>
-          <span style={button}>Mark</span>
+          <span style={button} onClick={(e) => {this.props.update_response(this.props.current_question_index)}} >Mark</span>
           <span style={button}>Submit</span>
         </div>
       </div>

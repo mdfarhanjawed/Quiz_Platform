@@ -14,7 +14,7 @@ const TodoReducer =  (state = [], action) => {
 
     case 'UPDATE_RESPONSE':
       const question = state[action.id];
-      question['status'] = "Done";
+      question['status'] = action.response == undefined ? "Pending": "Done";
       question['response'] = action.response;
       state[action.id] = Object.assign({}, state[action.id], question)
       return state;
