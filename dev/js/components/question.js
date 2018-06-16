@@ -11,10 +11,17 @@ const question_style = { marginBottom: '20px', marginTop: '10px', fontSize: '14p
 class Question extends React.Component {
   constructor(props){
     super(props);
+    this.handleOptionChange = this.handleOptionChange.bind(this)
   }
 
   componentWillMount(){
     this.props.get_question();
+  }
+
+  handleOptionChange (changeEvent) {
+    this.setState({
+      selectedOption: changeEvent.target.value
+    });
   }
 
   renderQuestion(item, index){
@@ -25,7 +32,7 @@ class Question extends React.Component {
       <span key="option">
       {item.option.map((option, option_index) => (
         <div key={'span' + option_index}>
-          <input value={option} onClick={(e) => {this.props.update_response(index, e.target.value)}} type="radio" id={option} name="random" key={'radio_option' + index}/>
+          <input  value={option} onClick={(e) => {this.props.update_response(index, e.target.value)}} type="radio" id={option} name="random" key={'radio_option' + index} checked={option == item.response} onChange={this.handleOptionChange} />
           <label key={'label_option' + option_index} key={'label_option' + option_index} >{option}</label>
         </div>
       ))}
