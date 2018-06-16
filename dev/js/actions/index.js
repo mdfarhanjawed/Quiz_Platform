@@ -32,3 +32,9 @@ export const get_english_question = () => ({
   type: "GET_ENGLISH_QUESTION",
   payload: catSearchServiceInstance.get('questions.json', { params: { question_type: "ENGLISH" } }),
 })
+
+export const update_response = (id, response) => ({
+  type: "UPDATE_RESPONSE",
+  id,
+  response,
+})

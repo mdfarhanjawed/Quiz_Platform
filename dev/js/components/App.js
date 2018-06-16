@@ -11,7 +11,8 @@ class App extends React.Component {
     super(props);
     this.updateCurrentQuestionIndex = this.updateCurrentQuestionIndex.bind(this);
     this.state = {
-      current_question_index: 0
+      current_question_index: 0,
+      question_type: this.props.question,
     };
   }
 
@@ -26,6 +27,7 @@ class App extends React.Component {
   // }
 
   render() {
+    console.log(this.state.question_type)
     return (
       <div>
         <Navbar {...this.state} updateQusIndx = {this.updateCurrentQuestionIndex} />

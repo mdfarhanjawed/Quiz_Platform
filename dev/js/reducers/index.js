@@ -12,6 +12,14 @@ const TodoReducer =  (state = [], action) => {
       return action.payload.data;
       break;
 
+    case 'UPDATE_RESPONSE':
+      const question = state[action.id];
+      question['status'] = "Done";
+      question['response'] = action.response;
+      state[action.id] = Object.assign({}, state[action.id], question)
+      return state;
+      break;
+
   }
   return state;
 }

@@ -16,8 +16,17 @@ h2 {
 	border: 1px solid red;
 	padding: 10px;
 	margin: 40px 20px;
+	cursor: pointer;
 }
 
 .questionSelected{
-	background: aquamarine;
+	border-radius: 10px;
+	background: #BADA55;
+	border: 1px dotted green;
+}
+
+.navbarSelected{
+	border-radius: 10px;
+	background: #BADA55;
+	border: 1px dotted green;
 }

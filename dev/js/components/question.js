@@ -1,5 +1,5 @@
 import React from 'react';
-import {get_question} from '../actions';
+import {get_question, update_response} from '../actions';
 import {action, connect} from 'react-redux';
 require('../../scss/style.scss');
 
@@ -23,10 +23,10 @@ class Question extends React.Component {
       <span key="question_number" >Question No: {index + 1}</span>
       <div style={question_style}>{item.question}</div>
       <span key="option">
-      {item.option.map((option, index) => (
-        <div key={'span' + index}>
-          <input type="radio" id={option} name="random" key={'radio_option' + index}/>
-          <label key={'label_option' + index} key={'label_option' + index} >{option}</label>
+      {item.option.map((option, option_index) => (
+        <div key={'span' + option_index}>
+          <input value={option} onClick={(e) => {this.props.update_response(index, e.target.value)}} type="radio" id={option} name="random" key={'radio_option' + index}/>
+          <label key={'label_option' + option_index} key={'label_option' + option_index} >{option}</label>
         </div>
       ))}
       </span>
@@ -34,6 +34,7 @@ class Question extends React.Component {
   }
 
   render(){
+    console.log(this.props.questions)
     return(
       <div style={width_40}>
         <div style={question}>
@@ -57,6 +58,9 @@ function mapDispatchToProps(dispatch) {
     get_question: () => {
       dispatch(get_question())
     },
+    update_response: (id, response) => {
+      dispatch(update_response(id, response))
+    }
   })
 }
 
