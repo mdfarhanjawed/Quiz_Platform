@@ -20,6 +20,11 @@ const TodoReducer =  (state = [], action) => {
       return state;
       break;
 
+    case 'CREATE_USER':
+
+      return action.payload.data;
+      break;
+
   }
   return state;
 }

@@ -38,3 +38,8 @@ export const update_response = (id, response) => ({
   id,
   response,
 })
+
+export const create_user = (params) => ({
+  type: "CREATE_USER",
+  payload: catSearchServiceInstance.post('users.json', params),
+})
