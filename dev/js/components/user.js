@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {action, connect} from 'react-redux';
 
 const sidebar = {  width: '30%', height: "500px"}
@@ -11,10 +12,11 @@ class User extends React.Component{
 
   render(){
     return(
-      <div>
-        <input type="text" />
-        <input type="text" />
-
+      <div style={{textAlign: 'center', marginTop: '150px'}}>
+        <h3>Personal Information</h3>
+        <input type="text" placeholder="username" className="inputStyle" />
+        <input type="text" placeholder="email" className="inputStyle" required={true} />
+        <div style={{marginTop: '20px'}}><Link className="buttonStyle" to="/question_page">Let's Begin The Quiz</Link></div>
       </div>
     )
   }
