@@ -21,7 +21,7 @@ const TodoReducer =  (state = [], action) => {
       break;
 
     case 'CREATE_USER':
-
+      localStorage.setItem('user_id', action.payload.data.id)
       return action.payload.data;
       break;
 

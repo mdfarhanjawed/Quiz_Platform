@@ -23,7 +23,7 @@ class User extends React.Component{
   render(){
     if (this.state.redirect_to_new_page) {
       return (
-        <Redirect to="/question_page"/>
+        <Redirect to="/question_page" />
       )
     }
     return(

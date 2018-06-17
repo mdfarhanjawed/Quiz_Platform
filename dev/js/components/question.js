@@ -42,6 +42,8 @@ class Question extends React.Component {
 
   render(){
     console.log(this.props.questions)
+    console.log("this.props.questions")
+    console.log(this.props.data)
     return(
       <div style={width_40}>
         <div style={question}>
