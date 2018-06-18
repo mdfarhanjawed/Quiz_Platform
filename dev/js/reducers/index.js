@@ -25,6 +25,14 @@ const TodoReducer =  (state = [], action) => {
       return action.payload.data;
       break;
 
+    case 'SUBMIT_RESPONSE':
+      return action.payload.data;
+      break;
+
+    case 'GET_RESULT':
+      return action.payload.data;
+      break;
+
   }
   return state;
 }
