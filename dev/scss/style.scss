@@ -238,4 +238,36 @@ table.vitamins tfoot td {
 /* Table Ends */
 
 
+.wrong-answer-border {
+	border: 0.5px solid gainsboro;
+	width: 44%;
+	height: auto;
+	margin: 17px;
+}
 
+.correct-answer-border{
+	border: 1px solid green;
+	width: 44%;
+	height: 186px;
+	margin: 17px;
+}
+
+ .question{
+	 margin: 0;
+	 padding: 7px;
+	 font-size: 16px;
+	 background: cadetblue;
+	 color: white;
+ }
+
+ .wrong{
+	 background: indianred;
+	 padding: 10px;
+	 color: whitesmoke;
+ }
+
+.correct{
+	background: green;
+	padding: 10px;
+	color: whitesmoke;
+}
