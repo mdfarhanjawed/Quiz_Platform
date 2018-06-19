@@ -17,13 +17,12 @@ class Navbar extends React.Component {
   // }
 
   render(){
-    console.log(this.state.question_type)
     return(
       <div onClick={() => {this.props.updateQusIndx(0)}}>
         <div>
-          <span style={navbar_design} className={this.props.questions[0] == "QUANTATIVE" ?  'navbarSelected': ''} onClick ={(e) => {this.props.get_question()}}>Quantative</span>
-          <span style={navbar_design} className={this.props.questions[0] == "REASONING" ?  'navbarSelected': ''} onClick ={(e) => {this.props.get_reasoning_question()}} >Reasoning</span>
-          <span style={navbar_design} className={this.props.questions[0] == "ENGLISH" ?  'navbarSelected': ''} onClick ={(e) => {this.props.get_english_question()}}>English</span>
+          <span style={navbar_design}  onClick ={(e) => {this.props.get_question()}}>Quantative</span>
+          <span style={navbar_design}  onClick ={(e) => {this.props.get_reasoning_question()}} >Reasoning</span>
+          <span style={navbar_design}  onClick ={(e) => {this.props.get_english_question()}}>English</span>
         </div>
       </div>
     )

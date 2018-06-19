@@ -29,7 +29,7 @@ class Sidebar extends React.Component{
     return(
       <div style={width_40}>Total Question
         <div style={{border: '1px solid green', height: '150px', width: '500px',padding: '40px' }}>
-          {this.props.questions.map((question, index) => (
+          {this.props.questions.question_details && this.props.questions.question_details.map((question, index) => (
             <span className={this.colorCode(question.status, index)} key={'box'+ index} onClick={() => {this.props.updateQusIndx(index)}}>{index + 1}</span>
           ))}
         </div>

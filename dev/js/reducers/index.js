@@ -1,23 +1,23 @@
 const TodoReducer =  (state = [], action) => {
   switch (action.type) {
     case 'GET_QUESTION':
-      return action.payload.data;
+      return {question_details: action.payload.data};
       break;
 
     case 'GET_REASONING_QUESTION':
-      return action.payload.data;
+      return {question_details: action.payload.data};
       break;
 
     case 'GET_ENGLISH_QUESTION':
-      return action.payload.data;
+      return {question_details: action.payload.data};
       break;
 
     case 'UPDATE_RESPONSE':
-      const question = state[action.id];
+      const question = state.question_details[action.id];
       question['status'] = action.response == undefined ? "Pending": "Done";
       question['response'] = action.response;
       state[action.id] = Object.assign({}, state[action.id], question)
-      return state;
+      return  state;
       break;
 
     case 'CREATE_USER':
@@ -30,6 +30,10 @@ const TodoReducer =  (state = [], action) => {
       break;
 
     case 'GET_RESULT':
+      return action.payload.data;
+      break;
+
+    case 'VIEW_DETAILS':
       return action.payload.data;
       break;
 

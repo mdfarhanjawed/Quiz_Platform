@@ -53,3 +53,8 @@ export const get_result = (user_id) => ({
   type: "GET_RESULT",
   payload: catSearchServiceInstance.get('users/result.json', {params: user_id}),
 })
+
+export const view_details = (params) => ({
+  type: "VIEW_DETAILS",
+  payload: catSearchServiceInstance.get('users/view_details.json', {params: params}),
+})

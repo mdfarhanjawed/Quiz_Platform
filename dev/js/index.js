@@ -9,6 +9,8 @@ import createLogger from 'redux-logger';
 import TodoReducer from './reducers';
 import App from './components/App';
 import User from './components/user'
+import Result from './components/result'
+import ViewDetail from './components/view_details'
 import {IndexRoute} from 'react-router-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -23,6 +25,8 @@ ReactDOM.render(
       <Router>
         <div>
           <Route exact path='/' component={User} />
+          <Route path='/result' component={Result} />
+          <Route path='/view_details' component={ViewDetail} />
           <Route path='/question_page' component={App} />
         </div>
       </Router>
