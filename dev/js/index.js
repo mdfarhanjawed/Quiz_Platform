@@ -6,18 +6,25 @@ import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import createLogger from 'redux-logger';
-import allReducers from './reducers';
+import TodoReducer from './reducers';
 import App from './components/App';
+import User from './components/user'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 const logger = createLogger();
 const store = createStore(
-    allReducers,
+  TodoReducer,
     applyMiddleware(thunk, promise, logger)
 );
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+      <Router>
+        <div>
+          <Route path='/user' component={User} />
+          <Route path='/question_page' component={App} />
+        </div>
+      </Router>
     </Provider>,
     document.getElementById('root')
 );

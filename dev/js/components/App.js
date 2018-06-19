@@ -1,16 +1,22 @@
 import React from 'react';
-import UserList from '../containers/user-list';
-import UserDetails from '../containers/user-detail';
+import QuestionPage from './root'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 require('../../scss/style.scss');
 
-const App = () => (
-    <div>
-        <h2>User List</h2>
-        <UserList />
-        <hr />
-        <h2>User Details</h2>
-        <UserDetails />
-    </div>
-);
+class App extends React.Component {
+  constructor(props){
+    super(props);
+  }
 
-export default App;
+  render() {
+    return (
+      <div>
+        <QuestionPage />
+      </div>
+    )
+  }
+}
+
+export default(App);
+
+

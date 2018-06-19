@@ -3,3 +3,49 @@ $primary: #006699;
 h2 {
 	color: $primary;
 }
+
+.completed{
+	text-decoration:line-through
+}
+
+.hidden {
+	display: none;
+}
+
+.boxDesign{
+	border: 1px solid red;
+	padding: 10px;
+	margin: 40px 20px;
+	cursor: pointer;
+}
+
+.activeQuestion{
+	border-radius: 10px;
+	background: #ADD9FE;
+	padding: 15px;
+	border: 3px solid #ADD9FE;
+}
+
+.markedQuestion{
+	border-radius: 10px;
+	background: #FFE5BC;
+	border: 1px dotted red;
+}
+
+.notAnsweredQuestion{
+	border-radius: 10px;
+	background: #8CDCDA;
+	border: 1px dotted red;
+}
+
+.answeredQuestion{
+	border-radius: 10px;
+	background: #B1D877;
+	border: 1px dotted green;
+}
+
+.navbarSelected{
+	border-radius: 10px;
+	background: #BADA55;
+	border: 1px dotted green;
+}

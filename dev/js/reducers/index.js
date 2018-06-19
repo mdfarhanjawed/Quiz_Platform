@@ -1,15 +1,27 @@
-import {combineReducers} from 'redux';
-import UserReducer from './reducer-users';
-import ActiveUserReducer from './reducer-active-user';
+const TodoReducer =  (state = [], action) => {
+  switch (action.type) {
+    case 'GET_QUESTION':
+      return action.payload.data;
+      break;
 
-/*
- * We combine all reducers into a single object before updated data is dispatched (sent) to store
- * Your entire applications state (store) is just whatever gets returned from all your reducers
- * */
+    case 'GET_REASONING_QUESTION':
+      return action.payload.data;
+      break;
 
-const allReducers = combineReducers({
-    users: UserReducer,
-    activeUser: ActiveUserReducer
-});
+    case 'GET_ENGLISH_QUESTION':
+      return action.payload.data;
+      break;
 
-export default allReducers
+    case 'UPDATE_RESPONSE':
+      const question = state[action.id];
+      question['status'] = action.response == undefined ? "Pending": "Done";
+      question['response'] = action.response;
+      state[action.id] = Object.assign({}, state[action.id], question)
+      return state;
+      break;
+
+  }
+  return state;
+}
+
+export default TodoReducer
