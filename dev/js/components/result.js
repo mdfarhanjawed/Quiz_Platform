@@ -1,5 +1,5 @@
 import React from 'react';
-import {get_result} from '../actions';
+import {get_result, view_details} from '../actions';
 import {action, connect} from 'react-redux';
 import { Link, Redirect, browserHistory } from 'react-router-dom';
 
@@ -40,21 +40,21 @@ class Result extends React.Component {
               <td>{this.props.result.correct_ans_apt}</td>
               <td>{this.props.result.wrong_ans_apt}</td>
               <td>{this.props.result.tot_apt_que}</td>
-              <td><Link to="/view_datils" onClick={(e) => { this.props.view_details({user_id: localStorage.getItem('user_id'), question_type: "QUANTATIVE"})}}>View Details</Link></td>
+              <td><Link to="/view_details" onClick={(e) => { this.props.view_details({user_id: localStorage.getItem('user_id'), question_type: "QUANTATIVE"})}}>View Details</Link>  </td>
             </tr>
             <tr>
               <td>Reasoning</td>
               <td>{this.props.result.correct_ans_reas}</td>
               <td>{this.props.result.wrong_ans_reas}</td>
               <td>{this.props.result.tot_reas_que}</td>
-              <td><Link to="/view_datils" onClick={(e) => { this.props.view_details({user_id: localStorage.getItem('user_id'), question_type: "REASONING"})}}>View Details</Link></td>
+              <td><Link to="/view_details" onClick={(e) => { this.props.view_details({user_id: localStorage.getItem('user_id'), question_type: "REASONING"})}}>View Details</Link></td>
             </tr>
             <tr>
               <td>English</td>
               <td>{this.props.result.correct_ans_eng}</td>
               <td>{this.props.result.wrong_ans_eng}</td>
               <td>{this.props.result.tot_eng_que}</td>
-              <td><Link to="/view_datils" onClick={(e) => { this.props.view_details({user_id: localStorage.getItem('user_id'), question_type: "ENGLISH"})}}>View Details</Link></td>
+              <td><Link to="/view_details" onClick={(e) => { this.props.view_details({user_id: localStorage.getItem('user_id'), question_type: "ENGLISH"})}}>View Details</Link></td>
             </tr>
           </tbody>
         </table>
