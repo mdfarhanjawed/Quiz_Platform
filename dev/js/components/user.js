@@ -16,7 +16,7 @@ class User extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.create_user({user: { email: this.state.email, username: this.state.username }})
+    this.props.create_user({user: { email: this.state.email, name: this.state.username }})
     this.setState({redirect_to_new_page: true})
   }
 

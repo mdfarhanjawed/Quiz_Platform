@@ -1,5 +1,5 @@
 import React from 'react';
-import {get_question, update_response, submit_response, get_result} from '../actions';
+import {get_question, update_response, submit_response} from '../actions';
 import {action, connect} from 'react-redux';
 import { Link, Redirect, browserHistory } from 'react-router-dom';
 import Result from './result';
@@ -57,7 +57,7 @@ class Question extends React.Component {
           <span style={button} className={(this.props.current_question_index + 1) == this.props.questions.length ? 'hidden': ''}  onClick={() => {this.props.updateQusIndx(this.props.current_question_index + 1)}}>Next</span>
           <span style={button} onClick={(e) => {this.props.update_response(this.props.current_question_index)}} >Mark</span>
           <span style={button} className={(this.props.current_question_index + 1) == this.props.questions.length ? '': 'hidden'} onClick={(e) => {this.props.submit_response({user_response: this.props.questions, user_id: localStorage.getItem('user_id') })}} >Submit</span>
-          <Link to="/result" component={Result} style={button} className={(this.props.current_question_index + 1) == this.props.questions.length ? '': 'hidden'} onClick={(e) => {this.props.get_result({user_id: localStorage.getItem('user_id')})}} >Results</Link>
+          <Link to="/result" style={button} className={(this.props.current_question_index + 1) == this.props.questions.length ? '': 'hidden'}  >Results</Link>
         </div>
       </div>
     )
@@ -74,10 +74,7 @@ function mapDispatchToProps(dispatch) {
     },
     submit_response: (response) => {
       dispatch(submit_response(response))
-    },
-    get_result: (user_id) => {
-      dispatch(get_result(user_id))
-    },
+    }
   })
 }
 

@@ -33,6 +33,10 @@ const TodoReducer =  (state = [], action) => {
       return action.payload.data;
       break;
 
+    case 'VIEW_DETAILS':
+      return action.payload.data;
+      break;
+
   }
   return state;
 }
