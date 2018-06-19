@@ -47,16 +47,16 @@ class Question extends React.Component {
     return(
       <div style={width_40}>
         <div style={question}>
-          {this.props.questions && this.props.questions.map((item, index) => (
+          {this.props.questions.question_details && this.props.questions.question_details.map((item, index) => (
              (index == this.props.current_question_index) ? this.renderQuestion(item, index) : ''
           ))}
         </div>
         <div style={question}>
           <span style={button} className={this.props.current_question_index == 0 ? 'hidden' : ''} onClick={() => {this.props.updateQusIndx(this.props.current_question_index - 1)}}>Prev</span>
-          <span style={button} className={(this.props.current_question_index + 1) == this.props.questions.length ? 'hidden': ''}  onClick={() => {this.props.updateQusIndx(this.props.current_question_index + 1)}}>Next</span>
+          <span style={button} className={(this.props.current_question_index + 1) == (this.props.questions.question_details && this.props.questions.question_details.length) ? 'hidden': ''}  onClick={() => {this.props.updateQusIndx(this.props.current_question_index + 1)}}>Next</span>
           <span style={button} onClick={(e) => {this.props.update_response(this.props.current_question_index)}} >Mark</span>
-          <span style={button} className={(this.props.current_question_index + 1) == this.props.questions.length ? '': 'hidden'} onClick={(e) => {this.props.submit_response({user_response: this.props.questions, user_id: localStorage.getItem('user_id') })}} >Submit</span>
-          <Link to="/result" style={button} className={(this.props.current_question_index + 1) == this.props.questions.length ? '': 'hidden'}  >Results</Link>
+          <span style={button} className={(this.props.current_question_index + 1) == (this.props.questions.question_details && this.props.questions.question_details.length) ? '': 'hidden'} onClick={(e) => {this.props.submit_response({user_response: this.props.questions.question_details, user_id: localStorage.getItem('user_id') })}} >Submit</span>
+          <Link to="/result" style={button}>Results</Link>
         </div>
       </div>
     )
