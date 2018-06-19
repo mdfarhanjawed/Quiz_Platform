@@ -20,6 +20,19 @@ const TodoReducer =  (state = [], action) => {
       return state;
       break;
 
+    case 'CREATE_USER':
+      localStorage.setItem('user_id', action.payload.data.id)
+      return action.payload.data;
+      break;
+
+    case 'SUBMIT_RESPONSE':
+      return action.payload.data;
+      break;
+
+    case 'GET_RESULT':
+      return action.payload.data;
+      break;
+
   }
   return state;
 }

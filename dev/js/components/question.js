@@ -1,6 +1,8 @@
 import React from 'react';
-import {get_question, update_response} from '../actions';
+import {get_question, update_response, submit_response, get_result} from '../actions';
 import {action, connect} from 'react-redux';
+import { Link, Redirect, browserHistory } from 'react-router-dom';
+import Result from './result';
 require('../../scss/style.scss');
 
 const question = { marginTop: '50px', border: '1px dotted black', width: '100%', marginLeft: '15px', padding: '10px'}
@@ -23,6 +25,7 @@ class Question extends React.Component {
       selectedOption: changeEvent.target.value
     });
   }
+
 
   renderQuestion(item, index){
     return (<div>
@@ -53,7 +56,8 @@ class Question extends React.Component {
           <span style={button} className={this.props.current_question_index == 0 ? 'hidden' : ''} onClick={() => {this.props.updateQusIndx(this.props.current_question_index - 1)}}>Prev</span>
           <span style={button} className={(this.props.current_question_index + 1) == this.props.questions.length ? 'hidden': ''}  onClick={() => {this.props.updateQusIndx(this.props.current_question_index + 1)}}>Next</span>
           <span style={button} onClick={(e) => {this.props.update_response(this.props.current_question_index)}} >Mark</span>
-          <span style={button}>Submit</span>
+          <span style={button} className={(this.props.current_question_index + 1) == this.props.questions.length ? '': 'hidden'} onClick={(e) => {this.props.submit_response({user_response: this.props.questions, user_id: localStorage.getItem('user_id') })}} >Submit</span>
+          <Link to="/result" component={Result} style={button} className={(this.props.current_question_index + 1) == this.props.questions.length ? '': 'hidden'} onClick={(e) => {this.props.get_result({user_id: localStorage.getItem('user_id')})}} >Results</Link>
         </div>
       </div>
     )
@@ -67,7 +71,13 @@ function mapDispatchToProps(dispatch) {
     },
     update_response: (id, response) => {
       dispatch(update_response(id, response))
-    }
+    },
+    submit_response: (response) => {
+      dispatch(submit_response(response))
+    },
+    get_result: (user_id) => {
+      dispatch(get_result(user_id))
+    },
   })
 }
 
