@@ -44,11 +44,10 @@ class Question extends React.Component {
   }
 
   render(){
-    console.log(this.props.questions)
     return(
       <div style={width_40}>
         <div style={question}>
-          {this.props.questions.map((item, index) => (
+          {this.props.questions && this.props.questions.map((item, index) => (
              (index == this.props.current_question_index) ? this.renderQuestion(item, index) : ''
           ))}
         </div>
